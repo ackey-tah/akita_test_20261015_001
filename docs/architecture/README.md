@@ -29,6 +29,8 @@ tests/
   integration/            受け入れ基準を確かめる UI 結合テスト
 ```
 
+各フォルダは npm workspaces の package で、package 名は `@janken-app/<フォルダ名>` です（`tests/` は `@janken-app/tests`）。公開 entrypoint は `@janken-app/janken`、adapter 用の entrypoint は `@janken-app/janken/adapters` で import します。Storybook の設定は `apps/web/.storybook/` にあります。
+
 ## 層と依存
 
 ```text
@@ -38,14 +40,17 @@ apps/web/src/main.tsx -> apps/web/src/composition -> packages/janken/adapters ->
 
 | 層 | 置き場 | 責務 | import してよいもの |
 | --- | --- | --- | --- |
-| domain | `packages/janken/src/domain/` | 業務の判断（勝敗・等確率の規則・割合・状態遷移） | 同じ domain、`packages/shared-kernel` |
-| application | `packages/janken/src/application/` | 対戦の操作（手を選ぶ・もう一度勝負する・表示内容を返す）の編成。外部依存は port で受ける | domain、`packages/shared-kernel` |
-| adapters | `packages/janken/src/adapters/` | port の実装（ブラウザの乱数で相手の手を選ぶ） | application の port、domain |
+| errors | `packages/janken/src/errors/` | module 固有の ErrorCode と DomainError 継承クラス | 同じ errors、`packages/shared-kernel` |
+| domain | `packages/janken/src/domain/` | 業務の判断（勝敗・等確率の規則・割合・状態遷移） | 同じ domain、errors、`packages/shared-kernel` |
+| application | `packages/janken/src/application/` | 対戦の操作（手を選ぶ・もう一度勝負する・表示内容を返す）の編成。外部依存は port で受ける | 同じ application、domain、errors、`packages/shared-kernel` |
+| adapters | `packages/janken/src/adapters/` | port の実装（ブラウザの乱数で相手の手を選ぶ） | 同じ adapters、application の port、domain、errors、`packages/shared-kernel` |
+| shared kernel | `packages/shared-kernel/` | DomainError 基底・Logger | 同じ shared-kernel だけ |
 | composition root | `apps/web/src/composition/` | adapter を application service に注入して組み立てる。呼ぶたびに新しいインスタンスを返す | `packages/janken` の公開 entrypoint と adapter 用の entrypoint（`packages/janken/adapters`） |
 | presentation | `apps/web/src/screens/` `apps/web/src/components/` | application service が返す DTO を表示し、操作を application service に渡す。application service は `main.tsx` から props で受け取る | `packages/janken` の公開 entrypoint（application service の型と DTO） |
 | エントリ | `apps/web/src/main.tsx` | composition root を 1 回呼び、作った application service を画面に渡して描画する | composition root、presentation |
 | 結合テスト | `tests/integration/` | 受け入れ基準を画面の操作で確かめる。テストごとに composition root を呼び直す | `apps/web` の composition root と画面 |
 
+- 表の packages の層は、「import してよいもの」に無いもの（React などのライブラリ、`apps/`・`tests/`）を import しない。Node・ブラウザの組み込みは除く
 - presentation は domain を import しない。勝敗・割合・状態の判断を画面で再実装せず、DTO の値を表示する
 - `packages/janken` は package.json の `exports` で 2 つの入口だけを公開する。公開 entrypoint（`packages/janken`）は domain を export しない。adapter 用の entrypoint（`packages/janken/adapters`）を import してよいのは composition root だけ
 - presentation（`screens/` `components/`）は composition root と adapter 用の entrypoint を import しない。adapter への経路を画面に作らないため

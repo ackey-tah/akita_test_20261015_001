@@ -11,3 +11,9 @@
 ## 追記
 
 - テストランナーは Vitest を使う。単体テスト・UI 結合テスト・story の実行を同じランナーで回す
+- `npm run check` は次の 3 段で動く。段は逐次、段の中は並列（標準の「検証コマンド」）
+  1. ULD の規約チェック（`check:branch` `check:kit` `check:rules` `check:index` `check:trace` `check:model-trace`）
+  2. 整形（`format:check`）・lint（`lint`）・型（`typecheck`）・import 境界（`deps`）
+  3. `npm run coverage`。単体テスト・story・UI 結合テストを 1 回で実行し、カバレッジの閾値まで判定する
+- `npm run check` の 3 段目は `npm run test:integration` を別に呼ばない。`coverage` が UI 結合テストを含むため、同じテストを 2 回回さないようにしている。`test:integration` は UI 結合テストだけを手元で回すための入口
+- `npm run check:fast` は、1 段目から `check:branch` と `check:model-trace` を外し、2 段目の lint を cache 付きにし、3 段目を `npm run test`（単体テストと story）にしたもの

@@ -1,0 +1,9 @@
+{
+  "name": "@janken-app/tests",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@janken-app/web": "0.0.0"
+  }
+}
