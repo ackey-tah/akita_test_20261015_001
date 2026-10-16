@@ -80,7 +80,7 @@
 
 ### Phase 6: じゃんけん画面の組み込み
 
-- [ ] 1.6.1 じゃんけん画面の組み込み（`JankenGame`・`OpponentHandPicker`・`RandomOpponentHandPicker`、composition root、画面の配線）
+- [x] 1.6.1 じゃんけん画面の組み込み（`JankenGame`・`OpponentHandPicker`・`RandomOpponentHandPicker`、composition root、画面の配線）
   - 観測点: UI 結合テスト（`tests/integration/uc-01-janken-battle.integration.test.tsx`）
   - 変更ファイル: `packages/janken/src/application/JankenGame.ts`・`JankenGame.test.ts`・`OpponentHandPicker.ts`、`packages/janken/src/adapters/RandomOpponentHandPicker.ts`・`RandomOpponentHandPicker.test.ts`・`index.ts`、`packages/janken/src/index.ts`、`apps/web/src/composition/createJankenGame.ts`、`apps/web/src/screens/JankenPage.tsx`、`apps/web/src/main.tsx`、`tests/integration/uc-01-janken-battle.integration.test.tsx`、`docs/usecases/UC-01-じゃんけんで対戦する.md`、`scenarios.md`（対応表）、この `tasks.md`（14 件。上限 15 に近い）
   - 同期する生き資料: `docs/usecases/UC-01-じゃんけんで対戦する.md`（UC-01 要件 1〜16 の「（未実装）」を外す）
