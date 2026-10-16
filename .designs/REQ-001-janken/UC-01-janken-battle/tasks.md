@@ -40,7 +40,7 @@
 
 ### Phase 2: 手と勝敗
 
-- [ ] 1.2.1 手と勝敗（`Hand`・`Outcome`、`JankenError`・`JankenErrorCode`）
+- [x] 1.2.1 手と勝敗（`Hand`・`Outcome`、`JankenError`・`JankenErrorCode`）
   - 観測点: domain の単体テスト（`Hand.test.ts`・`Outcome.test.ts`）
   - 変更ファイル: `packages/janken/src/domain/hand/Hand.ts`・`Hand.test.ts`・`Outcome.ts`・`Outcome.test.ts`・`HandKind.ts`・`OutcomeKind.ts`、`packages/janken/src/errors/JankenErrorCode.ts`・`JankenError.ts`・`JankenError.test.ts`（9 件）
   - 同期する生き資料: なし（モデル図は設計フェーズで最終形）
