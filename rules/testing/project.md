@@ -16,4 +16,5 @@
   2. 整形（`format:check`）・lint（`lint`）・型（`typecheck`）・import 境界（`deps`）
   3. `npm run coverage`。単体テスト・story・UI 結合テストを 1 回で実行し、カバレッジの閾値まで判定する
 - `npm run check` の 3 段目は `npm run test:integration` を別に呼ばない。`coverage` が UI 結合テストを含むため、同じテストを 2 回回さないようにしている。`test:integration` は UI 結合テストだけを手元で回すための入口
+- カバレッジの除外コメントは `/* v8 ignore next -- @preserve <理由> */` と書く。理由: TypeScript の変換でコメントが消え、`@preserve` が無いと除外が効かないため（Vitest 4 の v8 カバレッジ）。除外してよい条件は標準の「カバレッジ」のとおり
 - `npm run check:fast` は、1 段目から `check:branch` と `check:model-trace` を外し、2 段目の lint を cache 付きにし、3 段目を `npm run test`（単体テストと story）にしたもの
