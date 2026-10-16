@@ -50,7 +50,7 @@
 
 ### Phase 3: 戦績
 
-- [ ] 1.3.1 戦績（`BattleRecord`・`Percentage`）
+- [x] 1.3.1 戦績（`BattleRecord`・`Percentage`）
   - 観測点: domain の単体テスト（`BattleRecord.test.ts`・`Percentage.test.ts`）
   - 変更ファイル: `packages/janken/src/domain/battle-record/BattleRecord.ts`・`BattleRecord.test.ts`・`Percentage.ts`・`Percentage.test.ts`、`packages/janken/src/errors/JankenErrorCode.ts`（5 件）
   - 同期する生き資料: なし
