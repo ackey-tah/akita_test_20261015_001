@@ -40,7 +40,7 @@
 
 ### Phase 2: 手と勝敗
 
-- [ ] 1.2.1 手と勝敗（`Hand`・`Outcome`、`JankenError`・`JankenErrorCode`）
+- [x] 1.2.1 手と勝敗（`Hand`・`Outcome`、`JankenError`・`JankenErrorCode`）
   - 観測点: domain の単体テスト（`Hand.test.ts`・`Outcome.test.ts`）
   - 変更ファイル: `packages/janken/src/domain/hand/Hand.ts`・`Hand.test.ts`・`Outcome.ts`・`Outcome.test.ts`・`HandKind.ts`・`OutcomeKind.ts`、`packages/janken/src/errors/JankenErrorCode.ts`・`JankenError.ts`・`JankenError.test.ts`（9 件）
   - 同期する生き資料: なし（モデル図は設計フェーズで最終形）
@@ -50,7 +50,7 @@
 
 ### Phase 3: 戦績
 
-- [ ] 1.3.1 戦績（`BattleRecord`・`Percentage`）
+- [x] 1.3.1 戦績（`BattleRecord`・`Percentage`）
   - 観測点: domain の単体テスト（`BattleRecord.test.ts`・`Percentage.test.ts`）
   - 変更ファイル: `packages/janken/src/domain/battle-record/BattleRecord.ts`・`BattleRecord.test.ts`・`Percentage.ts`・`Percentage.test.ts`、`packages/janken/src/errors/JankenErrorCode.ts`（5 件）
   - 同期する生き資料: なし
@@ -60,7 +60,7 @@
 
 ### Phase 4: 対戦の進行
 
-- [ ] 1.4.1 対戦の進行（`GameSession`・`Round`）
+- [x] 1.4.1 対戦の進行（`GameSession`・`Round`）
   - 観測点: domain の単体テスト（`GameSession.test.ts`・`Round.test.ts`）
   - 変更ファイル: `packages/janken/src/domain/game-session/GameSession.ts`・`GameSession.test.ts`・`Round.ts`・`Round.test.ts`、`packages/janken/src/errors/JankenErrorCode.ts`（5 件）
   - 同期する生き資料: なし
@@ -70,7 +70,7 @@
 
 ### Phase 5: じゃんけん画面の表示
 
-- [ ] 1.5.1 じゃんけん画面の表示（`GameView`、戦績・手のボタン・勝負の結果・画面全体の表示 component）
+- [x] 1.5.1 じゃんけん画面の表示（`GameView`、戦績・手のボタン・勝負の結果・画面全体の表示 component）
   - 観測点: story（手の選択・あいこ・勝ち・負け・戦績 0 回の各状態）
   - 変更ファイル: `packages/janken/src/application/GameView.ts`、`packages/janken/src/index.ts`、`apps/web/src/components/BattleRecordPanel.tsx`・`.stories.tsx`、`HandButtons.tsx`・`.stories.tsx`、`RoundResult.tsx`・`.stories.tsx`、`JankenScreen.tsx`・`.stories.tsx`、`apps/web/src/components/fixtures/gameViews.ts`、`apps/web/src/styles.css`（12 件）
   - 同期する生き資料: なし
@@ -80,7 +80,7 @@
 
 ### Phase 6: じゃんけん画面の組み込み
 
-- [ ] 1.6.1 じゃんけん画面の組み込み（`JankenGame`・`OpponentHandPicker`・`RandomOpponentHandPicker`、composition root、画面の配線）
+- [x] 1.6.1 じゃんけん画面の組み込み（`JankenGame`・`OpponentHandPicker`・`RandomOpponentHandPicker`、composition root、画面の配線）
   - 観測点: UI 結合テスト（`tests/integration/uc-01-janken-battle.integration.test.tsx`）
   - 変更ファイル: `packages/janken/src/application/JankenGame.ts`・`JankenGame.test.ts`・`OpponentHandPicker.ts`、`packages/janken/src/adapters/RandomOpponentHandPicker.ts`・`RandomOpponentHandPicker.test.ts`・`index.ts`、`packages/janken/src/index.ts`、`apps/web/src/composition/createJankenGame.ts`、`apps/web/src/screens/JankenPage.tsx`、`apps/web/src/main.tsx`、`tests/integration/uc-01-janken-battle.integration.test.tsx`、`docs/usecases/UC-01-じゃんけんで対戦する.md`、`scenarios.md`（対応表）、この `tasks.md`（14 件。上限 15 に近い）
   - 同期する生き資料: `docs/usecases/UC-01-じゃんけんで対戦する.md`（UC-01 要件 1〜16 の「（未実装）」を外す）

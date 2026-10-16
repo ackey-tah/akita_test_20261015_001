@@ -27,9 +27,25 @@ classDiagram
         +equals(other) boolean
         +kind() OutcomeKind（勝敗の種類）
     }
+    class HandKind["手の種類<br>HandKind"] {
+        <<列挙型>>
+        rock（グー）
+        scissors（チョキ）
+        paper（パー）
+    }
+    class OutcomeKind["勝敗の種類<br>OutcomeKind"] {
+        <<列挙型>>
+        win（勝ち）
+        lose（負け）
+        draw（あいこ）
+    }
     Hand ..> "1" Outcome : 相手の手との勝敗を判定
+    Hand "1" *-- "1" HandKind : 手の種類
+    Outcome "1" *-- "1" OutcomeKind : 勝敗の種類
     style Hand fill:#C8E6C9,stroke:#1B5E20
     style Outcome fill:#C8E6C9,stroke:#1B5E20
+    style HandKind fill:#B2EBF2,stroke:#006064
+    style OutcomeKind fill:#B2EBF2,stroke:#006064
 ```
 
 各関数の仕様（条件ごとの結果・拒否条件）は `Hand.test.ts` と `Outcome.test.ts` の `describe` を参照してください。
@@ -53,3 +69,19 @@ classDiagram
 
 - **`isDecided` を持たせた。** 「勝敗が決まったか（あいこでないか）」は、もう一度勝負するボタンを出すか・手のボタンを出したままにするかの分かれ目で、複数の場所が使う判断になる。呼び出し側で「あいこと等しくないか」を組み立てさせず、勝敗自身に答えさせる
 - `kind()` は表示用の DTO へ変換するための getter で、条件判定には使わない
+
+---
+
+## 手の種類（HandKind）
+
+手がグー・チョキ・パーのどれかを表す区分です。関数はありません。
+
+- **クラスにせず文字列の列挙型にした。** 種類ごとの振る舞い（何に勝つか）は手が持ち、種類そのものは区別できれば足りる。手の外では表示用の DTO への変換にだけ使い、条件判定には使わない
+
+---
+
+## 勝敗の種類（OutcomeKind）
+
+勝敗が勝ち・負け・あいこのどれかを表す区分です。関数はありません。
+
+- **クラスにせず文字列の列挙型にした。** 理由は手の種類と同じ。勝敗が決まったかの判断は勝敗の `isDecided` が持つ
