@@ -30,7 +30,7 @@
 
 ### Phase 1: 共通部品
 
-- [ ] 1.1.1 共通部品（`DomainError`・`Logger`・`getLogger`・`ConsoleLogger`・`MemoryLogger`）
+- [x] 1.1.1 共通部品（`DomainError`・`Logger`・`getLogger`・`ConsoleLogger`・`MemoryLogger`）
   - 観測点: 単体テスト（`DomainError.test.ts`・`getLogger.test.ts`・`ConsoleLogger.test.ts`・`MemoryLogger.test.ts`）
   - 変更ファイル: `packages/shared-kernel/src/DomainError.ts`・`DomainError.test.ts`・`Logger.ts`・`getLogger.ts`・`getLogger.test.ts`・`ConsoleLogger.ts`・`ConsoleLogger.test.ts`・`MemoryLogger.ts`・`MemoryLogger.test.ts`・`index.ts`（10 件）
   - 同期する生き資料: なし
