@@ -70,7 +70,7 @@
 
 ### Phase 5: じゃんけん画面の表示
 
-- [ ] 1.5.1 じゃんけん画面の表示（`GameView`、戦績・手のボタン・勝負の結果・画面全体の表示 component）
+- [x] 1.5.1 じゃんけん画面の表示（`GameView`、戦績・手のボタン・勝負の結果・画面全体の表示 component）
   - 観測点: story（手の選択・あいこ・勝ち・負け・戦績 0 回の各状態）
   - 変更ファイル: `packages/janken/src/application/GameView.ts`、`packages/janken/src/index.ts`、`apps/web/src/components/BattleRecordPanel.tsx`・`.stories.tsx`、`HandButtons.tsx`・`.stories.tsx`、`RoundResult.tsx`・`.stories.tsx`、`JankenScreen.tsx`・`.stories.tsx`、`apps/web/src/components/fixtures/gameViews.ts`、`apps/web/src/styles.css`（12 件）
   - 同期する生き資料: なし
