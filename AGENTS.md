@@ -5,7 +5,7 @@
 
 ## このプロジェクト
 
-{プロジェクトの目的を 2〜3 文で。何のためのシステムかと、いまの段階}
+ブラウザだけで遊べる、コンピュータ相手のじゃんけんゲームです。サーバを持たない静的 Web アプリで、勝敗と戦績を見ながら何度でも遊べます。いまは最初のユースケース（UC-01 じゃんけんで対戦する）の設計を終え、実装に入る段階です。
 
 目的の定義は [docs/product/](docs/product/) を、現在の受け入れ基準（ユースケース記述）は [docs/usecases/](docs/usecases/) を、ユースケースを貫くジャーニー（E2E の対象）は [docs/journeys/](docs/journeys/) を参照してください。
 
@@ -41,7 +41,12 @@
 
 ## 構成
 
-{package・app の一覧を 1 行ずつ}
+構成の詳細は [docs/architecture/](docs/architecture/README.md) にあります。
+
+- `apps/web` — ブラウザアプリ（画面・表示 component と story・composition root）
+- `packages/janken` — じゃんけんの業務 module（domain・application・adapters・errors）
+- `packages/shared-kernel` — module 共通の最小限の部品（DomainError 基底・Logger）
+- `tests/integration` — 受け入れ基準を確かめる UI 結合テスト
 
 ## 検証
 

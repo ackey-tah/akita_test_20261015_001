@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>じゃんけん画面デザイン</title>
+<style>
+  :root {
+    --bg: #f6f7fb; --card: #ffffff; --text: #1f2333; --muted: #6b7085; --line: #dfe2ec;
+    --primary: #3b5bdb; --primary-text: #ffffff;
+    --win: #2b8a3e; --lose: #c92a2a; --draw: #e67700;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px 16px; font-family: system-ui, "Hiragino Sans", "Yu Gothic UI", sans-serif; background: var(--bg); color: var(--text); }
+  h1.page { font-size: 16px; color: var(--muted); font-weight: normal; margin: 0 0 16px; }
+  .states { display: flex; flex-wrap: wrap; gap: 24px; }
+  .state-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .screen { width: 340px; max-width: 100%; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; text-align: center; }
+  .title { font-size: 22px; font-weight: bold; margin: 0 0 12px; }
+  .record { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
+  .record div { background: var(--bg); border-radius: 10px; padding: 8px 4px; }
+  .record .label { font-size: 12px; color: var(--muted); }
+  .record .count { font-size: 18px; font-weight: bold; }
+  .record .pct { font-size: 12px; color: var(--muted); }
+  .prompt { font-size: 15px; margin: 8px 0 12px; }
+  .hands { display: flex; justify-content: center; gap: 10px; }
+  .hand-btn { width: 88px; padding: 12px 0; border: 2px solid var(--line); border-radius: 14px; background: var(--card); font-size: 14px; color: var(--text); }
+  .hand-btn .emoji { display: block; font-size: 34px; line-height: 1.2; }
+  .duel { display: flex; justify-content: center; align-items: center; gap: 16px; margin: 4px 0 8px; }
+  .duel .side { font-size: 12px; color: var(--muted); }
+  .duel .emoji { display: block; font-size: 44px; }
+  .duel .name { font-size: 14px; color: var(--text); }
+  .vs { color: var(--muted); }
+  .result { font-size: 28px; font-weight: bold; margin: 8px 0 16px; }
+  .result.win { color: var(--win); } .result.lose { color: var(--lose); } .result.draw { color: var(--draw); }
+  .rematch { padding: 12px 24px; border: 0; border-radius: 999px; background: var(--primary); color: var(--primary-text); font-size: 16px; font-weight: bold; }
+  .note { font-size: 12px; color: var(--muted); margin-top: 24px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<h1 class="page">じゃんけん画面のデザイン（設計フェーズ）。1 画面で、戦績を常に上に置き、その下が 3 つの状態で切り替わる</h1>
+<div class="states">
+  <section>
+    <div class="state-label">状態 1: 手の選択（開いた直後）</div>
+    <div class="screen">
+      <p class="title">じゃんけん</p>
+      <div class="record">
+        <div><div class="label">勝ち</div><div class="count">0回</div><div class="pct">-</div></div>
+        <div><div class="label">負け</div><div class="count">0回</div><div class="pct">-</div></div>
+        <div><div class="label">あいこ</div><div class="count">0回</div><div class="pct">-</div></div>
+      </div>
+      <p class="prompt">じゃんけん…手を選んでね</p>
+      <div class="hands">
+        <button class="hand-btn"><span class="emoji">✊</span>グー</button>
+        <button class="hand-btn"><span class="emoji">✌️</span>チョキ</button>
+        <button class="hand-btn"><span class="emoji">✋</span>パー</button>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="state-label">状態 2: あいこ（手のボタンを出したまま）</div>
+    <div class="screen">
+      <p class="title">じゃんけん</p>
+      <div class="record">
+        <div><div class="label">勝ち</div><div class="count">0回</div><div class="pct">0%</div></div>
+        <div><div class="label">負け</div><div class="count">0回</div><div class="pct">0%</div></div>
+        <div><div class="label">あいこ</div><div class="count">1回</div><div class="pct">100%</div></div>
+      </div>
+      <div class="duel">
+        <div><div class="side">あなた</div><span class="emoji">✋</span><span class="name">パー</span></div>
+        <div class="vs">vs</div>
+        <div><div class="side">相手</div><span class="emoji">✋</span><span class="name">パー</span></div>
+      </div>
+      <p class="result draw">あいこでしょ！</p>
+      <div class="hands">
+        <button class="hand-btn"><span class="emoji">✊</span>グー</button>
+        <button class="hand-btn"><span class="emoji">✌️</span>チョキ</button>
+        <button class="hand-btn"><span class="emoji">✋</span>パー</button>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="state-label">状態 3: 結果（勝ち。負けは赤で「負け」）</div>
+    <div class="screen">
+      <p class="title">じゃんけん</p>
+      <div class="record">
+        <div><div class="label">勝ち</div><div class="count">1回</div><div class="pct">50%</div></div>
+        <div><div class="label">負け</div><div class="count">0回</div><div class="pct">0%</div></div>
+        <div><div class="label">あいこ</div><div class="count">1回</div><div class="pct">50%</div></div>
+      </div>
+      <div class="duel">
+        <div><div class="side">あなた</div><span class="emoji">✌️</span><span class="name">チョキ</span></div>
+        <div class="vs">vs</div>
+        <div><div class="side">相手</div><span class="emoji">✋</span><span class="name">パー</span></div>
+      </div>
+      <p class="result win">勝ち</p>
+      <button class="rematch">もう一度勝負する</button>
+    </div>
+  </section>
+</div>
+<p class="note">
+  手は絵文字と文字を併記する（絵文字だけでは読み上げ環境で伝わらず、文字だけでは一目で分かりにくいため）。<br>
+  勝ち・負け・あいこは色に加えて文字で示す（色だけに頼らない）。<br>
+  手のボタンは指で押しやすい大きさにし、スマートフォンの幅（360px）でも 3 つが横に並ぶ。
+</p>
+</body>
+</html>
