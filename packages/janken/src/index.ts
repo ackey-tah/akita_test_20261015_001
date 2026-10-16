@@ -7,3 +7,5 @@ export type {
   OutcomeTally,
   RoundView,
 } from "./application/GameView";
+export { JankenGame } from "./application/JankenGame";
+export type { OpponentHandPicker } from "./application/OpponentHandPicker";

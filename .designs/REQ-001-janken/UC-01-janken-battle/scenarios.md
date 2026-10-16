@@ -146,14 +146,14 @@
 
 | シナリオ ID | 結合テスト | 状態 |
 | --- | --- | --- |
-| S-01-01 | 設計フェーズで決定 | 未実装 |
-| S-01-02 | 設計フェーズで決定 | 未実装 |
-| S-01-03 | 設計フェーズで決定 | 未実装 |
-| S-01-04 | 設計フェーズで決定 | 未実装 |
-| S-01-05 | 設計フェーズで決定 | 未実装 |
-| S-01-06 | 設計フェーズで決定 | 未実装 |
-| S-01-11 | 設計フェーズで決定 | 未実装 |
-| S-01-12 | 設計フェーズで決定 | 未実装 |
-| S-01-13 | 設計フェーズで決定 | 未実装 |
-| S-01-14 | 設計フェーズで決定 | 未実装 |
-| S-01-15 | 設計フェーズで決定 | 未実装 |
+| S-01-01 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 1: 画面を開いたとき…」「UC-01 要件 2 / UC-01 要件 13: 画面を開いたとき…」 | 実装済み |
+| S-01-02 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 5 / UC-01 要件 6 / UC-01 要件 9: 勝ったら…」 | 実装済み |
+| S-01-03 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 5 / UC-01 要件 6 / UC-01 要件 9: 負けたら…」 | 実装済み |
+| S-01-04 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 7 / UC-01 要件 8 / UC-01 要件 9: あいこなら…」 | 実装済み |
+| S-01-05 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 11: もう一度勝負すると…」 | 実装済み |
+| S-01-06 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 10: 割合は 3 つの回数の合計に対する…」「UC-01 要件 12: 勝負を何十回続けても…」 | 実装済み |
+| S-01-11 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 14: ページを開き直したら…」 | 実装済み |
+| S-01-12 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 15: 勝ちまたは負けの結果を表示している間は…」 | 実装済み |
+| S-01-13 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 16: 手のボタンを素早く続けて押しても…」 | 実装済み |
+| S-01-14 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 7 / UC-01 要件 8: あいこが続いても…」 | 実装済み |
+| S-01-15 | `tests/integration/uc-01-janken-battle.integration.test.tsx` の 「UC-01 要件 10: 3 つの割合の合計が 100% にならなくても…」 | 実装済み |
