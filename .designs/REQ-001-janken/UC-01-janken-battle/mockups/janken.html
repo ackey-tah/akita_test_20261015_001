@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>じゃんけん画面ラフ</title>
+<style>
+  body { font-family: sans-serif; margin: 16px; color: #222; background: #fff; }
+  h1 { font-size: 18px; }
+  .states { display: flex; flex-wrap: wrap; gap: 16px; }
+  .screen { border: 2px dashed #999; padding: 12px; width: 260px; }
+  .label { font-size: 12px; color: #666; margin-bottom: 8px; }
+  .stats { border: 1px solid #ccc; padding: 6px; font-size: 13px; margin-bottom: 12px; }
+  .hands { display: flex; gap: 8px; }
+  .btn { border: 1px solid #333; padding: 8px 12px; background: #eee; }
+  .result { margin: 8px 0; }
+  .big { font-size: 20px; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>じゃんけん画面ラフ（ワイヤーフレーム。見た目は設計フェーズで決める）</h1>
+<div class="states">
+  <div class="screen">
+    <div class="label">状態 1: 手の選択（初回）</div>
+    <div class="stats">勝ち 0 回（-）／負け 0 回（-）／あいこ 0 回（-）</div>
+    <p>手を選んでください</p>
+    <div class="hands"><span class="btn">グー</span><span class="btn">チョキ</span><span class="btn">パー</span></div>
+  </div>
+  <div class="screen">
+    <div class="label">状態 2: あいこ</div>
+    <div class="stats">勝ち 0 回（0%）／負け 0 回（0%）／あいこ 1 回（100%）</div>
+    <div class="result">あなた: パー　相手: パー</div>
+    <div class="result big">あいこでしょ！</div>
+    <div class="hands"><span class="btn">グー</span><span class="btn">チョキ</span><span class="btn">パー</span></div>
+  </div>
+  <div class="screen">
+    <div class="label">状態 3: 結果（勝ち / 負け）</div>
+    <div class="stats">勝ち 1 回（50%）／負け 0 回（0%）／あいこ 1 回（50%）</div>
+    <div class="result">あなた: チョキ　相手: パー</div>
+    <div class="result big">勝ち</div>
+    <span class="btn">もう一度勝負する</span>
+  </div>
+</div>
+</body>
+</html>
