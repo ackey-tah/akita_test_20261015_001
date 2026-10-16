@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 import process from "node:process";
 
@@ -58,7 +58,7 @@ export async function run(argv) {
 
   // 各 script は process.argv.slice(2) を自分の引数として読むので、command 名を取り除いて渡す。
   process.argv = [process.argv[0], scriptPath, ...rest];
-  await import(scriptPath);
+  await import(pathToFileURL(scriptPath).href);
 }
 
 if (process.argv[1] !== undefined && fileURLToPath(import.meta.url) === process.argv[1]) {
