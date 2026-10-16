@@ -1,1 +1,5 @@
 node_modules
+coverage
+dist
+storybook-static
+.eslintcache

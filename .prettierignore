@@ -1,0 +1,10 @@
+# uld-kit が配布しハッシュで管理するファイルと、ログ資料・生成物は整形しない
+scripts/uld/
+.claude/
+.designs/
+uld-kit.lock.json
+package-lock.json
+coverage/
+dist/
+storybook-static/
+*.md
