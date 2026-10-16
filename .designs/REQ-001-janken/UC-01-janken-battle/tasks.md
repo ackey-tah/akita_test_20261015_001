@@ -60,7 +60,7 @@
 
 ### Phase 4: 対戦の進行
 
-- [ ] 1.4.1 対戦の進行（`GameSession`・`Round`）
+- [x] 1.4.1 対戦の進行（`GameSession`・`Round`）
   - 観測点: domain の単体テスト（`GameSession.test.ts`・`Round.test.ts`）
   - 変更ファイル: `packages/janken/src/domain/game-session/GameSession.ts`・`GameSession.test.ts`・`Round.ts`・`Round.test.ts`、`packages/janken/src/errors/JankenErrorCode.ts`（5 件）
   - 同期する生き資料: なし
